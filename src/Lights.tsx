@@ -1,18 +1,18 @@
-import { useHelper } from "@react-three/drei";
-
-import { useRef } from "react";
-import { DirectionalLightHelper } from "three";
-
+// these imports serve the direction helper
+// import { useHelper } from "@react-three/drei";
+// import { useRef } from "react";
+// import { DirectionalLightHelper } from "three";
 
 const Lights: React.FC = () => {
-  const lightRef = useRef<THREE.DirectionalLight>(null);
+  // this is to look at the light source direction
+  // const lightRef = useRef<THREE.DirectionalLight>(null);
 
-  useHelper(lightRef, DirectionalLightHelper, 5, "red");
+  // useHelper(lightRef, DirectionalLightHelper, 5, "red");
   return (
     <>
       <ambientLight intensity={0.05} />
       <directionalLight
-        ref={lightRef}
+        // ref={lightRef}
         position={[5, 20, 20]}
         castShadow
         shadow-mapSize-height={1000}
