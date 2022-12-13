@@ -10,7 +10,7 @@ const Lights: React.FC = () => {
   // useHelper(lightRef, DirectionalLightHelper, 5, "red");
   return (
     <>
-      <ambientLight intensity={0.05} />
+      <ambientLight intensity={0.5} />
       <directionalLight
         // ref={lightRef}
         position={[5, 20, 20]}
