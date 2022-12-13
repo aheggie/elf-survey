@@ -3,7 +3,7 @@
 // import { useRef } from "react";
 // import { DirectionalLightHelper } from "three";
 
-const Lights: React.FC = () => {
+const Lights: React.FC<{ groundColor: string }> = ({ groundColor }) => {
   // this is to look at the light source direction
   // const lightRef = useRef<THREE.DirectionalLight>(null);
 
@@ -22,7 +22,7 @@ const Lights: React.FC = () => {
         shadow-camera-top={20}
         shadow-camera-bottm={-20}
       />
-      <hemisphereLight args={["lightskyblue", "#15CB73", 0.2]} />
+      <hemisphereLight args={["lightskyblue", groundColor, 0.2]} />
     </>
   );
 };

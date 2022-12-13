@@ -8,6 +8,7 @@ import Forest from "./Forest";
 const testing = false;
 
 function App() {
+  const groundColor = "#15CB73";
   return (
     <div className="App">
       <Canvas camera={{ position: [4, 8, 20] }} shadows>
@@ -16,8 +17,8 @@ function App() {
         <gridHelper args={[10, 10]} />
         <OrbitControls />
         <Forest />
-        <Ground color={"#15CB73"} />
-        <Lights />
+        <Ground groundColor={groundColor} />
+        <Lights groundColor={groundColor} />
       </Canvas>
     </div>
   );
