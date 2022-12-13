@@ -13,7 +13,7 @@ function App() {
         <axesHelper args={[10]} />
         <gridHelper args={[10, 10]} />
         <OrbitControls />
-        <Matilda scale={1} position={[0, 0, 0]} />
+        <Matilda height={1} position={[0, 0, 0]} />
       </Canvas>
     </div>
   );
