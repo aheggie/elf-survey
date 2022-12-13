@@ -2,6 +2,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stats } from "@react-three/drei";
 import "./App.css";
 import Matilda from "./Matilda";
+import Ground from "./Ground";
+import Lights from "./Lights";
 
 const testing = false;
 
@@ -14,6 +16,8 @@ function App() {
         <gridHelper args={[10, 10]} />
         <OrbitControls />
         <Matilda height={1} position={[0, 0, 0]} />
+        <Ground color={"#15CB73"} />
+        <Lights />
       </Canvas>
     </div>
   );
