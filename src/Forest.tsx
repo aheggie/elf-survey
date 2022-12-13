@@ -54,7 +54,7 @@ const treeMatrix = [
 const mergeKeys = (key1: number, key2: number): string =>
   `${key1.toString()}${key2.toString()}`;
 
-const Trees = () => {
+const Forest = () => {
   // these are to center the center point at the origin
   //
   // rowOffest in particular presumes that the matrix is square and takes the first row length
@@ -76,4 +76,4 @@ const Trees = () => {
     </>
   );
 };
-export default Trees;
+export default Forest;

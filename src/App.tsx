@@ -3,7 +3,7 @@ import { OrbitControls, Stats } from "@react-three/drei";
 import "./App.css";
 import Ground from "./Ground";
 import Lights from "./Lights";
-import Trees from "./Trees";
+import Forest from "./Forest";
 
 const testing = false;
 
@@ -15,7 +15,7 @@ function App() {
         <axesHelper args={[10]} />
         <gridHelper args={[10, 10]} />
         <OrbitControls />
-        <Trees />
+        <Forest />
         <Ground color={"#15CB73"} />
         <Lights />
       </Canvas>
