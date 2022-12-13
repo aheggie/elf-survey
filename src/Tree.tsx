@@ -2,11 +2,13 @@ import { useLoader } from "@react-three/fiber";
 import { Vector3Tuple } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-const Matilda: React.FC<{
+const randomScale = () => Math.random() * 0.5 + 0.75;
+
+const Tree: React.FC<{
   height: number;
   position: Vector3Tuple;
 }> = ({ height, position }) => {
-  const model = useLoader(GLTFLoader, "./models/matilda.glb");
+  const model = useLoader(GLTFLoader, "./models/pine_tree.glb");
 
   model.scene.traverse((object) => {
     // typescript complains about isMesh without this
@@ -17,11 +19,15 @@ const Matilda: React.FC<{
   });
   return (
     <group>
-      <object3D scale={[0.01, height * 0.02, 0.01]} position={position}>
+      <object3D
+        scale={[randomScale() * 0.008, height * 0.01, randomScale() * 0.008]}
+        position={position}
+        visible={height > 0}
+      >
         <primitive object={model.scene.clone()} />;
       </object3D>
     </group>
   );
 };
 
-export default Matilda;
+export default Tree;
