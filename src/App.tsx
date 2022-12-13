@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stats } from "@react-three/drei";
 import "./App.css";
-import Matilda from "./Matilda";
 import Ground from "./Ground";
 import Lights from "./Lights";
+import Trees from "./Trees";
 
 const testing = false;
 
@@ -15,7 +15,7 @@ function App() {
         <axesHelper args={[10]} />
         <gridHelper args={[10, 10]} />
         <OrbitControls />
-        <Matilda height={1} position={[0, 0, 0]} />
+        <Trees />
         <Ground color={"#15CB73"} />
         <Lights />
       </Canvas>
