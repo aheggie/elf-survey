@@ -2,7 +2,7 @@ import { useLoader } from "@react-three/fiber";
 import { Vector3Tuple } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-const Matilda: React.FC<{
+const Tree: React.FC<{
   height: number;
   position: Vector3Tuple;
 }> = ({ height, position }) => {
@@ -17,11 +17,15 @@ const Matilda: React.FC<{
   });
   return (
     <group>
-      <object3D scale={[0.01, height * 0.02, 0.01]} position={position}>
+      <object3D
+        scale={[0.02, height * 0.01, 0.02]}
+        position={position}
+        visible={height > 0}
+      >
         <primitive object={model.scene.clone()} />;
       </object3D>
     </group>
   );
 };
 
-export default Matilda;
+export default Tree;
