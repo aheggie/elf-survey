@@ -20,7 +20,7 @@ const Tree: React.FC<{
   return (
     <group>
       <object3D
-        scale={[randomScale() * 0.008, height * 0.01, randomScale() * 0.008]}
+        scale={[randomScale() * 0.004, height * 0.01, randomScale() * 0.004]}
         position={position}
         visible={height > 0}
       >
