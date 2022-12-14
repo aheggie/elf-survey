@@ -1,4 +1,5 @@
 import { Canvas } from "@react-three/fiber";
+import { useState } from "react";
 import { OrbitControls, Stats } from "@react-three/drei";
 import "./App.css";
 import Ground from "./Ground";
@@ -7,12 +8,13 @@ import Forest from "./Forest";
 
 // starting data
 import input from "./data/input.json";
-import { useState } from "react";
+import processForestString from "./utilities/processForestString";
+const processedForest = processForestString(input.forest, "\n");
 
 const testing = false;
 
 function App() {
-  const [treeMatrix] = useState(input.forest);
+  const [treeMatrix] = useState(processedForest);
   const groundColor = "#15CB73";
   return (
     <div className="App">

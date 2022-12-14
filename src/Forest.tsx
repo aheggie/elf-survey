@@ -1,4 +1,5 @@
 import Tree from "./Tree";
+import { TreeObj } from "./utilities/processForestString";
 
 const treeMatrix2 = [
   [
@@ -54,8 +55,8 @@ const treeMatrix2 = [
 const mergeKeys = (key1: number, key2: number): string =>
   `${key1.toString()}${key2.toString()}`;
 
-const Forest: React.FC<{ treeMatrix: string }> = ({ treeMatrix }) => {
-  console.log(treeMatrix);
+const Forest: React.FC<{ treeMatrix: TreeObj[][] }> = ({ treeMatrix }) => {
+  // console.log(treeMatrix);
   // these are to center the center point at the origin
   //
   // rowOffest in particular presumes that the matrix is square and takes the first row length

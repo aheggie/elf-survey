@@ -1,4 +1,4 @@
-interface Tree {
+export interface TreeObj {
   height: number;
   position: [number, number];
   onLeftEdge: boolean;
@@ -12,14 +12,14 @@ interface Tree {
 }
 
 const processLine =
-  (from: "Left" | "Right" | "Top" | "Bottom") => (treeLine: Tree[]) => {
+  (from: "Left" | "Right" | "Top" | "Bottom") => (treeLine: TreeObj[]) => {
     const { outputTreeLine } = treeLine.reduce(
       (
         {
           currentHighest,
           outputTreeLine,
-        }: { currentHighest: Number; outputTreeLine: Tree[] },
-        cur: Tree
+        }: { currentHighest: Number; outputTreeLine: TreeObj[] },
+        cur: TreeObj
       ) => {
         const isHeighest = cur.height > currentHighest;
         const newHighest = isHeighest ? cur.height : currentHighest;
@@ -41,7 +41,7 @@ const processLine =
       {
         currentHighest: 0,
         outputTreeLine: [],
-      } as { currentHighest: Number; outputTreeLine: Tree[] }
+      } as { currentHighest: Number; outputTreeLine: TreeObj[] }
     );
 
     return outputTreeLine;
@@ -53,13 +53,13 @@ const processForestString = (forestStr: string, separator: "\r\n" | "\n") => {
     // this is because the test data, which is copy-pasted from the problem, saves with a different newline convention
     // than the generated problem data
     .split(separator)
-    .map((line, lineIdx, linesArr): Tree[] => {
+    .map((line, lineIdx, linesArr): TreeObj[] => {
       const isFirstLine = lineIdx === 0;
       const isLastLine = lineIdx === linesArr.length - 1;
       return line
         .trim()
         .split("")
-        .map((treeHeight, treeIdx, treesArr): Tree => {
+        .map((treeHeight, treeIdx, treesArr): TreeObj => {
           const isFirstColumn = treeIdx === 0;
           const isLastColumn = treeIdx === treesArr.length - 1;
           return {
@@ -78,12 +78,12 @@ const processForestString = (forestStr: string, separator: "\r\n" | "\n") => {
         });
     });
 
-  const rowsProcessed = forestData.map((line: Tree[]): Tree[] => {
+  const rowsProcessed = forestData.map((line: TreeObj[]): TreeObj[] => {
     const leftProcessed = processLine("Left")(line);
     return processLine("Right")(leftProcessed.reverse()).reverse();
   });
 
-  const flipSquareMatrix = (matrix: any[][]): any[][] =>
+  const flipSquareMatrix = <T>(matrix: T[][]): T[][] =>
     matrix.reduce((acc, cur) => {
       cur.forEach((item, idx) => {
         if (acc[idx]) {
@@ -93,11 +93,11 @@ const processForestString = (forestStr: string, separator: "\r\n" | "\n") => {
         }
       });
       return acc;
-    }, []);
+    }, [] as T[][]);
 
   const forestFlipped = flipSquareMatrix(rowsProcessed);
 
-  const columnsProcessed = forestFlipped.map((line: Tree[]): Tree[] => {
+  const columnsProcessed = forestFlipped.map((line: TreeObj[]): TreeObj[] => {
     const topProcessed = processLine("Top")(line);
     return processLine("Bottom")(topProcessed.reverse()).reverse();
   });
