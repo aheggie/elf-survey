@@ -1,6 +1,6 @@
 import Tree from "./Tree";
 
-const treeMatrix = [
+const treeMatrix2 = [
   [
     { height: 1 },
     { height: 0 },
@@ -54,17 +54,18 @@ const treeMatrix = [
 const mergeKeys = (key1: number, key2: number): string =>
   `${key1.toString()}${key2.toString()}`;
 
-const Forest = () => {
+const Forest: React.FC<{ treeMatrix: string }> = ({ treeMatrix }) => {
+  console.log(treeMatrix);
   // these are to center the center point at the origin
   //
   // rowOffest in particular presumes that the matrix is square and takes the first row length
   // as standard - could be calculated dynamically in the function below
-  const rowOffset = 0.5 - treeMatrix[0].length / 2;
-  const colOffset = 0.5 - treeMatrix.length / 2;
+  const rowOffset = 0 - (treeMatrix2[0].length + 1) / 2;
+  const colOffset = 0 - (treeMatrix2.length + 1) / 2;
   console.log(rowOffset, colOffset);
   return (
     <>
-      {treeMatrix.map((row, rowIdx) =>
+      {treeMatrix2.map((row, rowIdx) =>
         row.map(({ height }, colIdx) => (
           <Tree
             height={height}

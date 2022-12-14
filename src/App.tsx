@@ -5,9 +5,14 @@ import Ground from "./Ground";
 import Lights from "./Lights";
 import Forest from "./Forest";
 
+// starting data
+import input from "./data/input.json";
+import { useState } from "react";
+
 const testing = false;
 
 function App() {
+  const [treeMatrix] = useState(input.forest);
   const groundColor = "#15CB73";
   return (
     <div className="App">
@@ -16,7 +21,7 @@ function App() {
         <axesHelper args={[10]} />
         <gridHelper args={[10, 10]} />
         <OrbitControls />
-        <Forest />
+        <Forest treeMatrix={treeMatrix} />
         <Ground groundColor={groundColor} />
         <Lights groundColor={groundColor} />
       </Canvas>
