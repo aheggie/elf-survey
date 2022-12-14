@@ -1,8 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import { Vector3Tuple } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
-const randomScale = () => Math.random() * 0.5 + 0.75;
+import randomScale from "./utilities/randomScale";
 
 const Tree: React.FC<{
   height: number;
@@ -20,7 +19,12 @@ const Tree: React.FC<{
   return (
     <group>
       <object3D
-        scale={[randomScale() * 0.004, height * 0.01, randomScale() * 0.004]}
+        rotation={[0, Math.random() * 2 * Math.PI, 0]}
+        scale={[
+          randomScale(0.5, 0.004),
+          randomScale(0.01, height * 0.01),
+          randomScale(0.5, 0.004),
+        ]}
         position={position}
         visible={height > 0}
       >
