@@ -18,7 +18,7 @@ function App() {
   const groundColor = "#15CB73";
   return (
     <div className="App">
-      <Canvas camera={{ position: [4, 8, 20] }} shadows>
+      <Canvas camera={{ position: [84, 48, -40] }} shadows>
         {testing ? <Stats /> : null}
         <axesHelper args={[10]} />
         <gridHelper args={[10, 10]} />
