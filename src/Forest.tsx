@@ -1,5 +1,6 @@
 import Tree from "./Tree";
 import { TreeObj } from "./utilities/processForestString";
+import randomScale from "./utilities/randomScale";
 
 // const treeMatrix2 = [
 //   [
@@ -70,7 +71,11 @@ const Forest: React.FC<{ treeMatrix: TreeObj[][] }> = ({ treeMatrix }) => {
         row.map(({ height }, colIdx) => (
           <Tree
             height={height}
-            position={[rowIdx + rowOffset, 0, colIdx + colOffset]}
+            position={[
+              randomScale(0.016, rowIdx + rowOffset),
+              0,
+              randomScale(0.016, colIdx + colOffset),
+            ]}
             key={mergeKeys(rowIdx, colIdx)}
           />
         ))
