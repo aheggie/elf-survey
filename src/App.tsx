@@ -4,13 +4,11 @@ import { OrbitControls, Stats } from "@react-three/drei";
 import "./App.css";
 import Ground from "./Ground";
 import Lights from "./Lights";
-import Forest from "./Forest";
 
 // starting data
 import input from "./data/input.json";
 import processForestString from "./utilities/processForestString";
-import InstancedForest from "./InstancedForest";
-import InstancedForestJs from "./InstancedFortressJS";
+import InstancedForestJs from "./InstancedForestJS";
 const processedForest = processForestString(input.forest, "\n");
 
 const testing = false;

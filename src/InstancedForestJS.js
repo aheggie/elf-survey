@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { useRef, useLayoutEffect } from "react";
+import randomScale from "./utilities/randomScale";
 
 const o = new THREE.Object3D();
 
@@ -59,10 +60,20 @@ function InstancedForestJs({ treeMatrix }) {
   const numTrees = treeMatrix.reduce((acc, cur) => acc + cur.length, 0);
   useLayoutEffect(() => {
     let i = 0;
+    // these are to center the center point at the origin
+    //
+    // rowOffest in particular presumes that the matrix is square and takes the first row length
+    // as standard - could be calculated dynamically in the function below
+    const rowOffset = 0 - (treeMatrix[0].length + 1) / 2;
+    const colOffset = 0 - (treeMatrix.length + 1) / 2;
     treeMatrix.forEach((row, rowIdx) => {
       row.forEach(({ height }, colIdx) => {
         const id = i++;
-        o.position.set(rowIdx, 0 + height / 2, colIdx);
+        o.position.set(
+          randomScale(0.016, rowIdx + rowOffset),
+          0 + height / 2,
+          randomScale(0.016, colIdx + colOffset)
+        );
         o.scale.set(0.15, height, 0.15);
         o.updateMatrix();
         ref.current.setMatrixAt(id, o.matrix);
