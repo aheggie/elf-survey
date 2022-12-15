@@ -18,12 +18,14 @@ const InstancedForest: React.FC<{ treeMatrix: TreeObj[][] }> = ({
   const colOffset = 0 - (treeMatrix.length + 1) / 2;
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const numTrees = treeMatrix.reduce((acc, cur) => acc + cur.length, 0);
+  console.log(numTrees);
 
   useLayoutEffect(() => {
     let i = 0;
     treeMatrix.forEach((row, rowIdx) =>
       row.forEach(({ height }, colIdx) => {
         const id = i++;
+        console.log(id);
         dummyTree.position.set(
           randomScale(0.016, rowIdx + rowOffset),
           0,
@@ -35,6 +37,7 @@ const InstancedForest: React.FC<{ treeMatrix: TreeObj[][] }> = ({
           randomScale(0.5, 0.004)
         );
         dummyTree.updateMatrix();
+        console.log(dummyTree.position);
         meshRef.current!.setMatrixAt(id, dummyTree.matrix);
       })
     );
@@ -42,7 +45,8 @@ const InstancedForest: React.FC<{ treeMatrix: TreeObj[][] }> = ({
   }, [colOffset, rowOffset, treeMatrix]);
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, numTrees]}>
-      <boxGeometry args={[1, 1, 1]}></boxGeometry>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial />
     </instancedMesh>
   );
 };
