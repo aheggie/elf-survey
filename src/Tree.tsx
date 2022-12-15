@@ -7,7 +7,7 @@ const Tree: React.FC<{
   height: number;
   position: Vector3Tuple;
 }> = ({ height, position }) => {
-  const model = useLoader(GLTFLoader, "./models/matilda.glb");
+  const model = useLoader(GLTFLoader, "./models/pine_tree.glb");
 
   model.scene.traverse((object) => {
     // typescript complains about isMesh without this
