@@ -75,6 +75,7 @@ function InstancedForestJs({ treeMatrix }) {
           randomScale(0.016, colIdx + colOffset)
         );
         o.scale.set(0.15, height, 0.15);
+        o.rotation.set(0, Math.random() * 2 * Math.PI, 0);
         o.updateMatrix();
         ref.current.setMatrixAt(id, o.matrix);
       });
