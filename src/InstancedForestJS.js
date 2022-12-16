@@ -4,57 +4,6 @@ import randomScale from "./utilities/randomScale";
 
 const o = new THREE.Object3D();
 
-const treeMatrix2 = [
-  [
-    { height: 1 },
-    { height: 0 },
-    { height: 3 },
-    { height: 2 },
-    { height: 4 },
-    { height: 3 },
-  ],
-  [
-    { height: 2 },
-    { height: 4 },
-    { height: 3 },
-    { height: 2 },
-    { height: 0 },
-    { height: 4 },
-  ],
-  [
-    { height: 2 },
-    { height: 0 },
-    { height: 4 },
-    { height: 1 },
-    { height: 0 },
-    { height: 3 },
-  ],
-  [
-    { height: 2 },
-    { height: 4 },
-    { height: 3 },
-    { height: 2 },
-    { height: 0 },
-    { height: 4 },
-  ],
-  [
-    { height: 2 },
-    { height: 0 },
-    { height: 4 },
-    { height: 1 },
-    { height: 0 },
-    { height: 3 },
-  ],
-  [
-    { height: 1 },
-    { height: 0 },
-    { height: 3 },
-    { height: 2 },
-    { height: 4 },
-    { height: 3 },
-  ],
-];
-
 function InstancedForestJs({ treeMatrix }) {
   const ref = useRef();
   const numTrees = treeMatrix.reduce((acc, cur) => acc + cur.length, 0);

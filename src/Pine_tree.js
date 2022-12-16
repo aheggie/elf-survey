@@ -6,7 +6,7 @@ source: https://sketchfab.com/3d-models/pine-tree-e52769d653cd4e52a4acff3041961e
 title: Pine tree
 */
 
-import React, { useRef, useMemo, useContext, createContext } from "react";
+import React, { useMemo, useContext, createContext } from "react";
 import { useGLTF, Merged } from "@react-three/drei";
 
 const context = createContext();

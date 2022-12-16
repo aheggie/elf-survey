@@ -8,7 +8,6 @@ import Lights from "./Lights";
 // starting data
 import input from "./data/input.json";
 import processForestString from "./utilities/processForestString";
-import InstancedForestJs from "./InstancedForestJS";
 import Forest from "./Forest";
 const processedForest = processForestString(input.forest, "\n");
 
