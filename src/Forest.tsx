@@ -1,4 +1,4 @@
-import { Instances, Model } from "./Pine_tree";
+import { Instances, Model } from "./Pine_tree_game-ready";
 import { TreeObj } from "./utilities/processForestString";
 import randomScale from "./utilities/randomScale";
 
