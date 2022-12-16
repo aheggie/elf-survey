@@ -9,6 +9,7 @@ import Lights from "./Lights";
 import input from "./data/input.json";
 import processForestString from "./utilities/processForestString";
 import InstancedForestJs from "./InstancedForestJS";
+import Forest from "./Forest";
 const processedForest = processForestString(input.forest, "\n");
 
 const testing = false;
@@ -23,7 +24,8 @@ function App() {
         <axesHelper args={[10]} />
         <gridHelper position={[-0.5, 0, -0.5]} args={[100, 100]} />
         <OrbitControls />
-        <InstancedForestJs treeMatrix={treeMatrix} />
+        {/* <InstancedForestJs treeMatrix={treeMatrix} /> */}
+        <Forest treeMatrix={treeMatrix} />
         <Ground groundColor={groundColor} />
         <Lights groundColor={groundColor} />
       </Canvas>
