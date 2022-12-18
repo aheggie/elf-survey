@@ -1,4 +1,4 @@
-import { Instances, Model } from "./Pine_tree_game-ready";
+import { Instances, Model } from "./Pine_tree";
 import { TreeObj } from "./utilities/processForestString";
 import randomScale from "./utilities/randomScale";
 
@@ -19,11 +19,15 @@ const SubForest: React.FC<{
             <Model
               rotation={[0, Math.random() * 2 * Math.PI, 0]}
               // scale={[
-              //   randomScale(0.5, 0.004),
-              //   randomScale(0.01, height * 0.01),
-              //   randomScale(0.5, 0.004),
+              //   randomScale(0.5, 0.016),
+              //   randomScale(0.01, height * 0.03),
+              //   randomScale(0.5, 0.016),
               // ]}
-              scale={[0.012, height * 0.016, 0.012]}
+              scale={[
+                randomScale(0.5, 0.0032),
+                randomScale(0.01, height * 0.008),
+                randomScale(0.5, 0.0032),
+              ]}
               position={[
                 randomScale(0.016, rowIdx + rowOffset),
                 0,

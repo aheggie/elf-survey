@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <Canvas
-        dpr={window.devicePixelRatio * 0.5}
+        dpr={window.devicePixelRatio * 0.52}
         frameloop="demand"
         camera={{ position: [84, 48, -40] }}
         shadows
