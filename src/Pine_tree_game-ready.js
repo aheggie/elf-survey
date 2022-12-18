@@ -6,7 +6,7 @@ source: https://sketchfab.com/3d-models/pine-tree-game-ready-dc3fbd9205cf4027a44
 title: Pine Tree [Game-ready]
 */
 
-import React, { useRef, useMemo, useContext, createContext } from "react";
+import { useMemo, useContext, createContext } from "react";
 import { useGLTF, Merged } from "@react-three/drei";
 
 const context = createContext();
