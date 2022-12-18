@@ -32,6 +32,8 @@ function App() {
         <Forest treeMatrix={treeMatrix} />
         <Ground groundColor={groundColor} />
         <Lights groundColor={groundColor} />
+        {/* cant tell if this works????? */}
+        {/* <fog /> */}
       </Canvas>
     </div>
   );
