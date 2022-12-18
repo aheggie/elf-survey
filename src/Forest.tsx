@@ -15,15 +15,15 @@ const SubForest: React.FC<{
       {treeSubMatrix.map((row) =>
         row.map(({ height, position }) => {
           const [rowIdx, colIdx] = position;
-          console.log(rowIdx, colIdx);
           return (
             <Model
               rotation={[0, Math.random() * 2 * Math.PI, 0]}
-              scale={[
-                randomScale(0.5, 0.004),
-                randomScale(0.01, height * 0.01),
-                randomScale(0.5, 0.004),
-              ]}
+              // scale={[
+              //   randomScale(0.5, 0.004),
+              //   randomScale(0.01, height * 0.01),
+              //   randomScale(0.5, 0.004),
+              // ]}
+              scale={[0.012, height * 0.016, 0.012]}
               position={[
                 randomScale(0.016, rowIdx + rowOffset),
                 0,
