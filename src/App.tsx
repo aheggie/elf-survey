@@ -18,7 +18,12 @@ function App() {
   const groundColor = "#15CB73";
   return (
     <div className="App">
-      <Canvas camera={{ position: [84, 48, -40] }} shadows>
+      <Canvas
+        dpr={window.devicePixelRatio * 0.5}
+        frameloop="demand"
+        camera={{ position: [84, 48, -40] }}
+        shadows
+      >
         {testing ? <Stats /> : null}
         <axesHelper args={[10]} />
         <gridHelper position={[-0.5, 0, -0.5]} args={[100, 100]} />
